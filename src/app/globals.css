@@ -1,53 +1,77 @@
 @import "tailwindcss";
-@import "shadcn/tailwind.css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-box-1: var(--font-box-1);
-  --font-box-2: var(--font-box-2);
-  --font-box-3: var(--font-box-3);
-  --font-box-4: var(--font-box-4);
-  --font-box-5: var(--font-box-5);
-  
-  --color-brand-primary: var(--brand-primary);
-  --color-brand-secondary: var(--brand-secondary);
-  --color-brand-accent: var(--brand-accent);
-  --color-brand-muted: var(--brand-muted);
+
+  /* Rolling Stone palette */
+  --color-rs-red: var(--rs-red);
+  --color-rs-black: var(--rs-black);
+  --color-rs-white: var(--rs-white);
+  --color-rs-gold: var(--rs-gold);
+  --color-rs-grey: var(--rs-grey);
+  --color-rs-grey-light: var(--rs-grey-light);
+  --color-rs-grey-dark: var(--rs-grey-dark);
+  --color-rs-grey-lightest: var(--rs-grey-lightest);
+  --color-rs-off-white: var(--rs-off-white);
+
+  /* Font families */
+  --font-headline: var(--font-headline);
+  --font-body: var(--font-body);
+  --font-ui: var(--font-ui);
 }
 
 :root {
-  --background: #f5f4f3;
-  --foreground: #171717; /* Dark gray almost black */
-  --brand-primary: #000000;
-  --brand-secondary: #525252;
-  --brand-accent: #2563eb;
-  --brand-muted: #e5e5e5;
+  --background: #B00909;
+  --foreground: #ffffff;
 
-  --border: #e5e5e5;
+  /* Rolling Stone Color Tokens adapted for Red BG */
+  --rs-red: #FFDA5F; /* gold for accents/highlights on red */
+  --rs-black: #000000;
+  --rs-white: #ffffff;
+  --rs-gold: #FFDA5F;
+  --rs-grey: #e5e5e5;
+  --rs-grey-light: #f3f4f6;
+  --rs-grey-dark: #f9fafb;
+  --rs-grey-lightest: rgba(255, 255, 255, 0.15);
+  --rs-off-white: #940606; /* slightly darker red for block accents */
 }
 
+/* === Base Styles === */
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-body), Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
-/* Custom Scrollbar for Cinematic Feel */
+/* === Editorial Scrollbar === */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #B00909;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #999999;
+}
+
+/* === Selection === */
+::selection {
+  background-color: #E60019;
+  color: #ffffff;
+}
+
+/* === Smooth scroll behavior === */
+html {
+  scroll-behavior: smooth;
 }

@@ -1,38 +1,29 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Syne, Syncopate, Michroma, Audiowide } from "next/font/google";
+import { Source_Serif_4, Roboto_Condensed } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-box-2",
-  subsets: ["latin"],
+const racingSansOne = localFont({
+  src: "../../public/fonts/RacingSansOne-Regular.ttf",
+  variable: "--font-headline",
 });
 
-const syne = Syne({
-  variable: "--font-box-1",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const syncopate = Syncopate({
-  weight: ["400", "700"],
-  variable: "--font-box-3",
+const robotoCondensed = Roboto_Condensed({
+  variable: "--font-ui",
   subsets: ["latin"],
-});
-
-const michroma = Michroma({
-  weight: "400",
-  variable: "--font-box-4",
-  subsets: ["latin"],
-});
-
-const audiowide = Audiowide({
-  weight: "400",
-  variable: "--font-box-5",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Ram Chandu | The Storyteller",
-  description: "Building with logic. Creating with imagination.",
+  title: "Ram Chandu — Developer, Creator, Storyteller",
+  description:
+    "Building with logic. Creating with imagination. The portfolio of Ram Chandu — a developer, videographer, and creative builder.",
 };
 
 export default function RootLayout({
@@ -43,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${syne.variable} ${syncopate.variable} ${michroma.variable} ${audiowide.variable} font-sans antialiased bg-background text-foreground`}
+        className={`${racingSansOne.variable} ${sourceSerif.variable} ${robotoCondensed.variable} antialiased`}
       >
         {children}
       </body>
